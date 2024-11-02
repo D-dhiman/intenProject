@@ -1,19 +1,6 @@
 import 'package:flutter/material.dart';
-
-// Define Profile and Report screens
-class ProfileScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(child: Text('Profile Screen'));
-  }
-}
-
-class ReportScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(child: Text('Report Screen'));
-  }
-}
+import 'ProfileScreen.dart';
+import 'ReportScreen.dart';
 
 class Home extends StatefulWidget {
   @override
