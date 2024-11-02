@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'ProfileScreen.dart';
 import 'ReportScreen.dart';
+import 'yoga/YogaStart.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -164,12 +165,20 @@ class HomeState extends State<Home> {
             // Yoga image
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.0),
+              child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => YogaStart()),
+                );
+              },
               child: Container(
-                width: MediaQuery.of(context).size.width * 0.6,
-                height: MediaQuery.of(context).size.height * 0.6,
-                child: Image.asset(
-                  'assets/placeHolder.jpg',
-                  fit: BoxFit.contain,
+                  width: MediaQuery.of(context).size.width * 0.6,
+                  height: MediaQuery.of(context).size.height * 0.6,
+                  child: Image.asset(
+                    'assets/placeHolder.jpg',
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ),
             ),
