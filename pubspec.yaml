@@ -55,7 +55,8 @@ flutter:
   assets:
     - assets/google.png
     - assets/facebook.png
-
+    - assets/customise.png
+    - assets/placeHolder.jpg
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

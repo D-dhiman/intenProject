@@ -19,8 +19,10 @@ void main() => runApp(
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 30),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center, // Center content vertically
-                  crossAxisAlignment: CrossAxisAlignment.center, // Center content horizontally
+                  mainAxisAlignment:
+                      MainAxisAlignment.center, // Center content vertically
+                  crossAxisAlignment:
+                      CrossAxisAlignment.center, // Center content horizontally
                   children: [
                     // FitVit text
                     SizedBox(height: 230),
@@ -45,7 +47,8 @@ void main() => runApp(
                     SizedBox(height: 130),
                     // Extra text
                     SizedBox(
-                      width: double.infinity, // Make sure text is aligned in full width
+                      width: double
+                          .infinity, // Make sure text is aligned in full width
                       height: 31,
                       child: Text.rich(
                         TextSpan(
