@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'QuestionsFour.dart';
+import 'Global.dart';
 
 
 class QuestionsThree extends StatefulWidget {
@@ -8,12 +9,11 @@ class QuestionsThree extends StatefulWidget {
 }
 
 class QuestionsThreeState extends State<QuestionsThree> {
-  String? _selectedLevel;
 
   // Function to handle selection and navigation
   void _onSelect(String level) {
     setState(() {
-      _selectedLevel = level;
+      disabillity = level;
     });
     // Navigate to the next screen
     Navigator.push(
@@ -59,27 +59,6 @@ class QuestionsThreeState extends State<QuestionsThree> {
             SizedBox(height: 20),
             _buildOption('Other', screenWidth),
             SizedBox(height: 40),
-            // Skip button
-            GestureDetector(
-              onTap: () {
-                // Optionally navigate to another screen without selection
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => QuestionsFour()),
-                );
-              },
-              child: Text(
-                'Skip >',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Color(0xFF616161),
-                  fontSize: 14,
-                  fontFamily: 'Karla',
-                  fontWeight: FontWeight.w400,
-                  letterSpacing: 1.40,
-                ),
-              ),
-            ),
           ],
         ),
       ),
@@ -96,7 +75,7 @@ class QuestionsThreeState extends State<QuestionsThree> {
         decoration: BoxDecoration(
           border: Border.all(color: Color(0xFF5A086A), width: 1),
           borderRadius: BorderRadius.circular(10),
-          color: _selectedLevel == level ? Color(0xFF5A086A).withOpacity(0.1) : Colors.transparent,
+          color: disabillity == level ? Color(0xFF5A086A).withOpacity(0.1) : Colors.transparent,
         ),
         alignment: Alignment.center,
         child: Text(

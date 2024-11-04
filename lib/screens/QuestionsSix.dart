@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'QuestionsSeven.dart';
+import 'Global.dart';
 
 
 class QuestionsSix extends StatefulWidget {
@@ -8,12 +9,11 @@ class QuestionsSix extends StatefulWidget {
 }
 
 class QuestionsSixState extends State<QuestionsSix> {
-  String? _selectedLevel;
 
   // Function to handle selection and navigation
   void _onSelect(String level) {
     setState(() {
-      _selectedLevel = level;
+      time = level;
     });
     // Navigate to the next screen
     Navigator.push(
@@ -96,7 +96,7 @@ class QuestionsSixState extends State<QuestionsSix> {
         decoration: BoxDecoration(
           border: Border.all(color: Color(0xFF5A086A), width: 1),
           borderRadius: BorderRadius.circular(10),
-          color: _selectedLevel == level ? Color(0xFF5A086A).withOpacity(0.1) : Colors.transparent,
+          color: time == level ? Color(0xFF5A086A).withOpacity(0.1) : Colors.transparent,
         ),
         alignment: Alignment.center,
         child: Text(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'QuestionsEight.dart';
+import 'Global.dart';
 
 
 class QuestionsSeven extends StatefulWidget {
@@ -8,7 +9,6 @@ class QuestionsSeven extends StatefulWidget {
 }
 
 class QuestionsSevenState extends State<QuestionsSeven> {
-  String userInput = ""; // To store the input
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +62,7 @@ class QuestionsSevenState extends State<QuestionsSeven> {
                 ),
                 onChanged: (value) {
                   setState(() {
-                    userInput = value; // Storing the input
+                    restrictions = value; // Storing the input
                   });
                 },
               ),

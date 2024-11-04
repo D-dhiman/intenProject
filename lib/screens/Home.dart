@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'ProfileScreen.dart';
 import 'ReportScreen.dart';
-import 'yoga/YogaStart.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -169,7 +168,7 @@ class HomeState extends State<Home> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => YogaStart()),
+                  MaterialPageRoute(builder: (context) => ProfileScreen()),
                 );
               },
               child: Container(
