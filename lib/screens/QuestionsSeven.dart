@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 import 'QuestionsEight.dart';
 import 'Global.dart';
 
-
 class QuestionsSeven extends StatefulWidget {
   @override
   QuestionsSevenState createState() => QuestionsSevenState();
 }
 
 class QuestionsSevenState extends State<QuestionsSeven> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,6 +66,31 @@ class QuestionsSevenState extends State<QuestionsSeven> {
               ),
             ),
             SizedBox(height: 30), // Add spacing below the input field
+            ElevatedButton(
+              onPressed: () {
+                // Navigate to the next screen and pass userInput
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => QuestionsEight(),
+                  ),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color(0xFF5A086A), // Button color
+              ),
+              child: Text(
+                'Submit',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 14,
+                  fontFamily: 'Karla',
+                  fontWeight: FontWeight.w400,
+                  letterSpacing: 1.40,
+                ),
+              ),
+            ),
+            SizedBox(height: 10), // Spacing between Submit and Skip buttons
             TextButton(
               onPressed: () {
                 // Navigate to the next screen and pass userInput
