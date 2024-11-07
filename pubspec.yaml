@@ -60,6 +60,9 @@ flutter:
     - assets/report_1/back/Chest Expansions (Seated with Band).jpg
     - assets/report_1/back/Seated Rows (Resistance Band).webp
     - assets/report_1/back/Supported Back Extensions.jpg
+    - assets/report_1/back/Arm Reach Backs.webp
+    - assets/report_1/back/Scapular Squeezes.webp
+    - assets/report_1/back/Wall-Assisted Seated Lat Pull.webp
     - assets/report_1/core/Isometric Core Hold (Seated).webp
     - assets/report_1/core/Modified Russian Twists.webp
     - assets/report_1/core/Pelvic Tilts.webp
@@ -78,6 +81,9 @@ flutter:
     - assets/report_1/upper body/Seated Wrist Rotations.webp
     - assets/report_1/upper body/Tricep Extensions (Seated).jpeg
     - assets/report_1/upper body/Wrist Curls (With Light Weights).jpg
+    - assets/report_1/shoulder/Front Arm Raises.webp
+    - assets/report_1/shoulder/Lateral Raises (Modified Range).webp
+    - assets/report_1/shoulder/Shoulder Press Seated.webp
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
