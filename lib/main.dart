@@ -96,7 +96,7 @@ class MyApp extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => SignUpScreen()),
+                            builder: (context) => SignUp()),
                       );
                     },
                     child: Container(
