@@ -57,6 +57,27 @@ flutter:
     - assets/facebook.png
     - assets/customise.png
     - assets/placeHolder.jpg
+    - assets/report_1/back/Chest Expansions (Seated with Band).jpg
+    - assets/report_1/back/Seated Rows (Resistance Band).webp
+    - assets/report_1/back/Supported Back Extensions.jpg
+    - assets/report_1/core/Isometric Core Hold (Seated).webp
+    - assets/report_1/core/Modified Russian Twists.webp
+    - assets/report_1/core/Pelvic Tilts.webp
+    - assets/report_1/core/Seated Knee Tucks.webp
+    - assets/report_1/core/Seated Leg Raises.webp
+    - assets/report_1/core/Seated Torso Twists (2).webp
+    - assets/report_1/lower body/Ankle Flexion Extension with Resistance Band.jpg
+    - assets/report_1/lower body/Foot Circles (2).webp
+    - assets/report_1/lower body/KNEE lifts (2).webp
+    - assets/report_1/lower body/Seated Leg Extensions.webp
+    - assets/report_1/lower body/Seated Marches (High Knees) (2).webp
+    - assets/report_1/lower body/Wheelchair Toe Raises.webp
+    - assets/report_1/upper body/Isometric Shoulder Press (Without Weights).png
+    - assets/report_1/upper body/Resistance Band Bicep Curls.webp
+    - assets/report_1/upper body/Seated Arm Circles.png
+    - assets/report_1/upper body/Seated Wrist Rotations.webp
+    - assets/report_1/upper body/Tricep Extensions (Seated).jpeg
+    - assets/report_1/upper body/Wrist Curls (With Light Weights).jpg
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
