@@ -8,7 +8,7 @@ String disabillity = "";
 
 String goal = "";
 
-String assistiveDevice = "";
+String  = "";
 
 String activityEnjoy = "";
 

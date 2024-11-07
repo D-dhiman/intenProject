@@ -9,12 +9,11 @@ class QuestionsFour extends StatefulWidget {
 }
 
 class QuestionsFourState extends State<QuestionsFour> {
-  String? _selectedLevel;
 
   // Function to handle selection and navigation
   void _onSelect(String level) {
     setState(() {
-      assistiveDevice = level;
+      assistiveDevice= level;
     });
     // Navigate to the next screen
     Navigator.push(
@@ -116,5 +115,3 @@ class QuestionsFourState extends State<QuestionsFour> {
     );
   }
 }
-
-// Next screen to show after selection
