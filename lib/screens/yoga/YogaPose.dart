@@ -28,17 +28,17 @@ List<YogaRoutine> getPersonalizedRoutines(String disabilityType) {
 class YogaPose extends StatelessWidget {
   final List<YogaRoutine> routines;
 
-  YogaPose({required this.routines});
+  const YogaPose({required this.routines});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Yoga Routine'),
+        title: const Text('Yoga Routine'),
       ),
       body: routines.isNotEmpty
           ? ExerciseScreen(exercise: routines[0], exerciseIndex: 0, routines: routines)
-          : Center(child: Text('No routines available for this disability type.')),
+          : const Center(child: Text('No routines available for this disability type.')),
     );
   }
 }
@@ -48,7 +48,7 @@ class ExerciseScreen extends StatefulWidget {
   final int exerciseIndex;
   final List<YogaRoutine> routines;
 
-  ExerciseScreen({required this.exercise, required this.exerciseIndex, required this.routines});
+  const ExerciseScreen({super.key, required this.exercise, required this.exerciseIndex, required this.routines});
 
   @override
   _ExerciseScreenState createState() => _ExerciseScreenState();
@@ -63,7 +63,7 @@ class _ExerciseScreenState extends State<ExerciseScreen> {
     setState(() {
       _isResting = true;
     });
-    _restTimer = Timer.periodic(Duration(seconds: 1), (timer) {
+    _restTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (_restDuration > 0) {
         setState(() {
           _restDuration--;
@@ -113,26 +113,26 @@ class _ExerciseScreenState extends State<ExerciseScreen> {
               children: [
                 Text(
                   'Rest for $_restDuration seconds',
-                  style: TextStyle(fontSize: 24),
+                  style: const TextStyle(fontSize: 24),
                 ),
-                SizedBox(height: 20),
-                CircularProgressIndicator(), // Optional progress indicator
+                const SizedBox(height: 20),
+                const CircularProgressIndicator(), // Optional progress indicator
               ],
             )
           : Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(widget.exercise.name, style: TextStyle(fontSize: 24)),
-                SizedBox(height: 10),
+                Text(widget.exercise.name, style: const TextStyle(fontSize: 24)),
+                const SizedBox(height: 10),
                 Image.asset(widget.exercise.mediaPath), // Exercise image
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Text(widget.exercise.description),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
                     _startRestTimer(); // Start rest when exercise is completed
                   },
-                  child: Text('Complete Exercise'),
+                  child: const Text('Complete Exercise'),
                 ),
               ],
             ),
@@ -148,11 +148,13 @@ void main() {
 }
 
 class DisabilitySelectionScreen extends StatelessWidget {
+  const DisabilitySelectionScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Select Disability Type'),
+        title: const Text('Select Disability Type'),
       ),
       body: Center(
         child: Column(
@@ -166,7 +168,7 @@ class DisabilitySelectionScreen extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => YogaPose(routines: routines)),
                 );
               },
-              child: Text('Mobility'),
+              child: const Text('Mobility'),
             ),
             ElevatedButton(
               onPressed: () {
@@ -176,7 +178,7 @@ class DisabilitySelectionScreen extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => YogaPose(routines: routines)),
                 );
               },
-              child: Text('Flexibility'),
+              child: const Text('Flexibility'),
             ),
             // Add more buttons for different disability types as needed
           ],

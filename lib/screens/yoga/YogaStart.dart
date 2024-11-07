@@ -26,7 +26,7 @@ class YogaStartState extends State<YogaStart> {
   }
 
   void startTimer() {
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (_counter > 0) {
         setState(() {
           _counter--;
@@ -41,14 +41,14 @@ class YogaStartState extends State<YogaStart> {
   void navigateToNextScreen() {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => YogaPose(disabilityType:disabilityType)),
+      MaterialPageRoute(builder: (context) => YogaPose(routines:disabilityType)),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         width: MediaQuery.of(context).size.width, // Full width of the screen
         height: MediaQuery.of(context).size.height, // Full height of the screen
         child: Column(
@@ -58,7 +58,7 @@ class YogaStartState extends State<YogaStart> {
             SizedBox(height: MediaQuery.of(context).size.height * 0.1),
             Container(
               alignment: Alignment.center,
-              child: Text(
+              child: const Text(
                 'Let’s \nStart',
                 style: TextStyle(
                   color: Color(0xFFBB0EDD),
@@ -71,13 +71,13 @@ class YogaStartState extends State<YogaStart> {
                 textAlign: TextAlign.center,
               ),
             ),
-            SizedBox(height: 15), // Space between text and gradient line
+            const SizedBox(height: 15), // Space between text and gradient line
 
             // Gradient line
             Container(
               width: 100,
               height: 10,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment(1.0, 0.0),
                   end: Alignment(-1, 0),
@@ -89,10 +89,10 @@ class YogaStartState extends State<YogaStart> {
                 ),
               ),
             ),
-            SizedBox(height: 20), // Adds spacing to push bottom elements down
+            const SizedBox(height: 20), // Adds spacing to push bottom elements down
             Container(
               alignment: Alignment.center,
-              child: Text(
+              child: const Text(
                 'Starting In',
                 style: TextStyle(
                   color: Color(0xFFBB0EDD),
@@ -111,9 +111,9 @@ class YogaStartState extends State<YogaStart> {
                 builder: (context, value, child) {
                   return Text(
                     value.toString(),
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 60,
-                      color: const Color.fromARGB(255, 255, 154, 2),
+                      color:  Color.fromARGB(255, 255, 154, 2),
                       fontWeight: FontWeight.bold,
                     ),
                   );

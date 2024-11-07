@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'QuestionsOne.dart';
+import 'ques/QuestionsOne.dart';
 
 class Start extends StatefulWidget {
   @override
@@ -20,8 +20,8 @@ class _StartState extends State<Start> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 90),
-              SizedBox(
+              const SizedBox(height: 90),
+              const SizedBox(
                 width: double.infinity,
                 height: 53,
                 child: Text(
@@ -39,7 +39,7 @@ class _StartState extends State<Start> {
                 ),
               ),
               // Adds space between "Hello" text and the questions text
-              SizedBox(
+              const SizedBox(
                 width: double.infinity,
                 child: Text.rich(
                   TextSpan(
@@ -79,7 +79,7 @@ class _StartState extends State<Start> {
                   textAlign: TextAlign.left, // Align text to the left
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               // Pushes the button to the bottom
 
               GestureDetector(
@@ -87,7 +87,7 @@ class _StartState extends State<Start> {
                   // Add functionality here
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => QuestionsOne()),
+                    MaterialPageRoute(builder: (context) => const QuestionsOne()),
                   );
                 },
                 child: Container(
@@ -99,12 +99,12 @@ class _StartState extends State<Start> {
                       borderRadius: BorderRadius.circular(32),
                     ),
                   ),
-                  child: Center(
+                  child: const Center(
                     child: Text(
                       'Next',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: const Color.fromARGB(255, 255, 255, 255),
+                        color: Color.fromARGB(255, 255, 255, 255),
                         fontSize: 16,
                         fontFamily: 'Karla',
                         fontWeight: FontWeight.w600,

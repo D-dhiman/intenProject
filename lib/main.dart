@@ -88,7 +88,7 @@ void main() => runApp(
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => SignUpScreen()),
+                              builder: (context) => SignUp()),
                         );
                       },
                       child: Container(

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'ProfileScreen.dart';
 import 'ReportScreen.dart';
-import 'yoga/YogaStart.dart';
+// import 'yoga/YogaStart.dart';
 
 class Home extends StatefulWidget {
+  const Home({super.key});
+
   @override
   HomeState createState() => HomeState();
 }
@@ -48,7 +50,7 @@ class HomeState extends State<Home> {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return SingleChildScrollView(
-      child: Container(
+      child: SizedBox(
         width: screenWidth,
         child: Column(
           children: [
@@ -56,13 +58,13 @@ class HomeState extends State<Home> {
             Align(
               alignment: Alignment.centerLeft,
               child: Container(
-                margin: EdgeInsets.only(top: 20.0),
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                margin: const EdgeInsets.only(top: 20.0),
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Text(
                   'App Name',
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                    color: Color(0xFF3C3939),
+                    color: const Color(0xFF3C3939),
                     fontSize: MediaQuery.of(context).size.width * 0.04,
                     fontFamily: 'Karla',
                     fontWeight: FontWeight.w600,
@@ -76,12 +78,12 @@ class HomeState extends State<Home> {
             Align(
               alignment: Alignment.centerLeft,
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Text(
                   'Week Goals',
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                    color: Color(0xFF3C3939),
+                    color: const Color(0xFF3C3939),
                     fontSize: MediaQuery.of(context).size.width * 0.030,
                     fontFamily: 'Karla',
                     fontWeight: FontWeight.w500,
@@ -94,7 +96,7 @@ class HomeState extends State<Home> {
             // Customize your exercise routine text
             Align(
               alignment: Alignment.center,
-              child: Container(
+              child: SizedBox(
                 width: MediaQuery.of(context).size.width * 0.8,
                 height: MediaQuery.of(context).size.height * 0.8,
                 child: Image.asset(
@@ -108,12 +110,12 @@ class HomeState extends State<Home> {
             Align(
               alignment: Alignment.centerLeft,
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Text(
                   'Limb and Area Specific Exercises',
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                    color: Color(0xFF3C3939),
+                    color: const Color(0xFF3C3939),
                     fontSize: MediaQuery.of(context).size.width * 0.03,
                     fontFamily: 'Karla',
                     fontWeight: FontWeight.w500,
@@ -125,19 +127,19 @@ class HomeState extends State<Home> {
             SizedBox(height: MediaQuery.of(context).size.height * 0.03),
             // Exercise routine options
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
                     _buildExerciseOption(null),
-                    SizedBox(width: 8),
+                    const SizedBox(width: 8),
                     _buildExerciseOption(null),
-                    SizedBox(width: 8),
+                    const SizedBox(width: 8),
                     _buildExerciseOption(null),
-                    SizedBox(width: 8),
+                    const SizedBox(width: 8),
                     _buildExerciseOption(null),
-                    SizedBox(width: 8),
+                    const SizedBox(width: 8),
                   ],
                 ),
               ),
@@ -147,12 +149,12 @@ class HomeState extends State<Home> {
             Align(
               alignment: Alignment.centerLeft,
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Text(
                   'More options',
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                    color: Color(0xFF3C3939),
+                    color: const Color(0xFF3C3939),
                     fontSize: MediaQuery.of(context).size.width * 0.03,
                     fontFamily: 'Karla',
                     fontWeight: FontWeight.w500,
@@ -164,15 +166,15 @@ class HomeState extends State<Home> {
             SizedBox(height: MediaQuery.of(context).size.height * 0.03),
             // Yoga image
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: GestureDetector(
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => YogaStart()),
+                  MaterialPageRoute(builder: (context) => const ProfileScreen()),
                 );
               },
-              child: Container(
+              child: SizedBox(
                   width: MediaQuery.of(context).size.width * 0.6,
                   height: MediaQuery.of(context).size.height * 0.6,
                   child: Image.asset(
@@ -185,8 +187,8 @@ class HomeState extends State<Home> {
             SizedBox(height: MediaQuery.of(context).size.height * 0.03),
             // Zumba image
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
-              child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: SizedBox(
                 width: MediaQuery.of(context).size.width * 0.6,
                 height: MediaQuery.of(context).size.height * 0.6,
                 child: Image.asset(
@@ -208,7 +210,7 @@ class HomeState extends State<Home> {
       case 1:
         return ReportScreen(); // Report screen content
       case 2:
-        return ProfileScreen(); // Profile screen content
+        return const ProfileScreen(); // Profile screen content
       default:
         return Container(); // Default case (shouldn't happen)
     }
@@ -220,7 +222,7 @@ class HomeState extends State<Home> {
       width: MediaQuery.of(context).size.width * 0.4,
       height: MediaQuery.of(context).size.height * 0.4,
       decoration: BoxDecoration(
-        color: imageUrl == null ? Color(0xFFD9D9D9) : null,
+        color: imageUrl == null ? const Color(0xFFD9D9D9) : null,
         borderRadius: BorderRadius.circular(8),
         image: imageUrl != null
             ? DecorationImage(

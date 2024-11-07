@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class YogaRest extends StatefulWidget {
+  const YogaRest({super.key});
+
   @override
   YogaRestState createState() => YogaRestState();
 }
@@ -8,10 +10,8 @@ class YogaRest extends StatefulWidget {
 class YogaRestState extends State<YogaRest> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        child: Text('yoga'),
-      ),
+    return const Scaffold(
+      body: Text('yoga'),
     );
   }
 }
