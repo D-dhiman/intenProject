@@ -52,12 +52,11 @@ class RestCardState extends State<RestCard> with SingleTickerProviderStateMixin 
               width: MediaQuery.of(context).size.width * 0.5,
               height: MediaQuery.of(context).size.height * 0.4,
               decoration: BoxDecoration(
-                color: Color(0xFFD9D9D9),
+                color: Color.fromARGB(255, 255, 255, 255),
               ),
-              child: Image.asset(
-                'assets/placeHolder.jpg',
-                fit: BoxFit.cover,
-              ),
+              child:Image.asset(
+                'restGif.gif',
+              )
             ),
           ),
 
