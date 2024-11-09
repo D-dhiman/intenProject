@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'ProfileScreen.dart';
 import 'ReportScreen.dart';
-import 'yoga/YogaStart.dart';
+import 'Exercise.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -61,7 +61,7 @@ class HomeState extends State<Home> {
                 margin: const EdgeInsets.only(top: 20.0),
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Text(
-                  'App Name',
+                  'Fit Vit',
                   textAlign: TextAlign.left,
                   style: TextStyle(
                     color: const Color(0xFF3C3939),
@@ -132,13 +132,15 @@ class HomeState extends State<Home> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    _buildExerciseOption(null),
+                    _buildExerciseOptionWithNavigation(context),
                     const SizedBox(width: 8),
-                    _buildExerciseOption(null),
+                    _buildExerciseOptionWithNavigation(context),
                     const SizedBox(width: 8),
-                    _buildExerciseOption(null),
+                    _buildExerciseOptionWithNavigation(context),
                     const SizedBox(width: 8),
-                    _buildExerciseOption(null),
+                    _buildExerciseOptionWithNavigation(context),
+                    const SizedBox(width: 8),
+                    _buildExerciseOptionWithNavigation(context),
                     const SizedBox(width: 8),
                   ],
                 ),
@@ -164,17 +166,40 @@ class HomeState extends State<Home> {
               ),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+            //second options for mix 
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    _buildExerciseOptionWithNavigation(context),
+                    const SizedBox(width: 8),
+                    _buildExerciseOptionWithNavigation(context),
+                    const SizedBox(width: 8),
+                    _buildExerciseOptionWithNavigation(context),
+                    const SizedBox(width: 8),
+                    _buildExerciseOptionWithNavigation(context),
+                    const SizedBox(width: 8),
+                    _buildExerciseOptionWithNavigation(context),
+                    const SizedBox(width: 8),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.03),
             // Yoga image
+            /*
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => YogaStart()),
-                );
-              },
-              child: SizedBox(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ExerciseCard()),
+                  );
+                },
+                child: SizedBox(
                   width: MediaQuery.of(context).size.width * 0.6,
                   height: MediaQuery.of(context).size.height * 0.6,
                   child: Image.asset(
@@ -198,6 +223,7 @@ class HomeState extends State<Home> {
               ),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+            */
           ],
         ),
       ),
@@ -233,4 +259,16 @@ class HomeState extends State<Home> {
       ),
     );
   }
+  Widget _buildExerciseOptionWithNavigation(BuildContext context) {
+  return GestureDetector(
+    onTap: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context)=> ExerciseCard()),
+      );
+    },
+    child: _buildExerciseOption(null),
+  );
+}
+
 }
