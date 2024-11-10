@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'ProfileScreen.dart';
 import 'ReportScreen.dart';
-import 'Exercise.dart';
+import 'combined/upperBodyCoreScreen.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -166,7 +166,7 @@ class HomeState extends State<Home> {
               ),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-            //second options for mix 
+            //second options for mix
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: SingleChildScrollView(
@@ -259,16 +259,16 @@ class HomeState extends State<Home> {
       ),
     );
   }
-  Widget _buildExerciseOptionWithNavigation(BuildContext context) {
-  return GestureDetector(
-    onTap: () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context)=> ExerciseCard()),
-      );
-    },
-    child: _buildExerciseOption(null),
-  );
-}
 
+  Widget _buildExerciseOptionWithNavigation(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ExerciseScreen()),
+        );
+      },
+      child: _buildExerciseOption(null),
+    );
+  }
 }
