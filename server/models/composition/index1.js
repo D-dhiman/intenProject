@@ -1,14 +1,22 @@
 const mongoose = require("mongoose"); 
 const exerciseData = require("./data1.js");
-const CompositionCategory = require("./composition_model.js");
+const CompositionCategory = require("./composition-model.js")
+
+
+main()
+.then(() => console.log("connected to db"))
+.catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/mobile', { useNewUrlParser: true, useUnifiedTopology: true });
-  console.log("Connected to DB");
-
-  await CompositionCategory.deleteMany({});
-  await CompositionCategory.create(exerciseData);
-  console.log("Database initialized with exercise data");
+  await mongoose.connect('mongodb://127.0.0.1:27017/mobile'); 
 }
 
-main().catch(err => console.log(err));
+const initDb = async () => {
+    await CompositionCategory.deleteMany({});
+
+    await CompositionCategory.insertMany(exerciseData);
+    console.log("data initialised")
+
+};
+initDb();
+

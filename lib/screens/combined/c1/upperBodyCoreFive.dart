@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'Exercise.dart';
-import 'Rest.dart';
+import '../Exercise.dart';
+import 'Rest1.dart';
 
 class ExerciseScreen extends StatefulWidget {
+  const ExerciseScreen({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _ExerciseScreenState createState() => _ExerciseScreenState();
 }
 
@@ -18,16 +21,21 @@ class _ExerciseScreenState extends State<ExerciseScreen> with SingleTickerProvid
   int currentExerciseIndex = 0;
   bool isRest = false; // Track if it's rest period or exercise period
   bool isFinished = false; // Track if all exercises are done
-  bool isLoading = true; // Track if data is still loading
+  bool isLoading = true;
 
   // Fetch exercise data
   Future<void> fetchExerciseData() async {
   try {
-    final response = await http.get(Uri.parse('http://192.168.1.5:5000/exercises/upperBodyCore'));
+    final url = Uri.parse('http://localhost:3000/exercises/upperBodyCore/five');
+    final response = await http.get(
+      url,
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+    );
 
     if (response.statusCode == 200) {
-      var data = json.decode(response.body);
-      print("Fetched data: $data"); // Log the fetched data
+      var data = json.decode(response.body); // Log the fetched data
       setState(() {
         exercises = data;
         if (exercises.isNotEmpty) {
@@ -104,25 +112,23 @@ class _ExerciseScreenState extends State<ExerciseScreen> with SingleTickerProvid
   Widget build(BuildContext context) {
     // Display a loading indicator while data is loading
     if (isLoading) {
-      return Scaffold(
+      return const Scaffold(
         body: Center(child: CircularProgressIndicator()),
       );
     }
-
-    // Display a message if no exercises are found
     if (exercises.isEmpty) {
-      return Scaffold(
+      return const Scaffold(
         body: Center(child: Text('No exercises available.')),
       );
     }
 
     // Display a completion message when all exercises are finished
     if (isFinished) {
-      return Scaffold(
+      return const Scaffold(
         body: Center(child: Text('All exercises completed!')),
       );
     }
-
+    
     return Scaffold(
       body: Center(
         child: isRest 

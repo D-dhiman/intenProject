@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'ProfileScreen.dart';
 import 'ReportScreen.dart';
-import 'combined/upperBodyCoreScreen.dart';
+import 'combined/c1/ExerciseScreen.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -265,7 +265,7 @@ class HomeState extends State<Home> {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => ExerciseScreen()),
+          MaterialPageRoute(builder: (context) =>ExerciseScreen()),
         );
       },
       child: _buildExerciseOption(null),
