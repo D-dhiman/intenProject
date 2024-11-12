@@ -54,24 +54,64 @@ class _RestCardState extends State<RestCard> with SingleTickerProviderStateMixin
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Rest"),
-        actions: [
-          TextButton(
-            onPressed: skipRestAndGoToNextScreen,
-            child: Text(
-              "Skip",
-              style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),
-            ),
-          ),
-        ],
+        backgroundColor: Colors.white, // Set AppBar color to white
+        elevation: 0,
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
               'Rest',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                color: const Color.fromARGB(255, 140, 0, 255),
+                fontSize: MediaQuery.of(context).size.width * 0.04,
+                fontFamily: 'Karla',
+                fontWeight: FontWeight.w600,
+                letterSpacing: 0.7,
+              ),
+            ),
+            //snoopy gif
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 28.0),
+              child: Container(
+                //width: MediaQuery.of(context).size.width * 0.3,
+                //height: MediaQuery.of(context).size.height * 0.3,
+                decoration: BoxDecoration(
+                  color: Color(0xFFD9D9D9),
+                ),
+                child: Image.asset(
+                  'assets/restGif.gif',
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            //timer bar
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 6.0),
+              child: AnimatedBuilder(
+                animation:_controller,
+                builder: (context, child) {
+                  return LinearProgressIndicator(
+                    value: _controller.value, // Progress from 0.0 to 1.0
+                    backgroundColor: Colors.grey[300],
+                    valueColor: AlwaysStoppedAnimation<Color>(Color(0xFF00A3FF)),
+                  );
+                },
+              ),
+            ),
+            //skip button
+            Spacer(), // Push the button to the bottom
+            Padding(
+              padding: const EdgeInsets.only(bottom: 20.0), // Add some bottom padding
+              child: TextButton(
+                onPressed: skipRestAndGoToNextScreen,
+                child: Text(
+                  "Skip",
+                  style: TextStyle(color: Colors.black, fontSize: 16),
+                ),
+              ),
             ),
             CircularProgressIndicator(value: _controller.value),
           ],
@@ -80,3 +120,4 @@ class _RestCardState extends State<RestCard> with SingleTickerProviderStateMixin
     );
   }
 }
+

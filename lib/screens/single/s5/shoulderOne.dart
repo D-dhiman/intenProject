@@ -3,14 +3,15 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../Exercise.dart';
 import 'Rest1.dart';
-import 'upperBodyCoreTwo.dart'; // Import the next screen file
+import 'shoulderTwo.dart'; // Import the next screen file
 
-class ExerciseScreen extends StatefulWidget {
+class ShoulderOne extends StatefulWidget {
   @override
-  _ExerciseScreenState createState() => _ExerciseScreenState();
+  _ShoulderState createState() => _ShoulderState();
 }
 
-class _ExerciseScreenState extends State<ExerciseScreen> with SingleTickerProviderStateMixin {
+class _ShoulderState extends State<ShoulderOne>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late String exerciseName;
   late String exerciseDescription;
@@ -22,7 +23,8 @@ class _ExerciseScreenState extends State<ExerciseScreen> with SingleTickerProvid
   // Fetch exercise data
   Future<void> fetchExerciseData() async {
     try {
-      final url = Uri.parse('http://localhost:3000/exercises/upperBodyCore/one');
+      final url =
+          Uri.parse('http://localhost:3000/single/shoulder/one');
       final response = await http.get(
         url,
         headers: <String, String>{
@@ -87,7 +89,7 @@ class _ExerciseScreenState extends State<ExerciseScreen> with SingleTickerProvid
   void skipToNextScreen() {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => UpperBodyCoreTwo()),
+      MaterialPageRoute(builder: (context) => ShoulderTwo()),
     );
   }
 
@@ -136,7 +138,7 @@ class _ExerciseScreenState extends State<ExerciseScreen> with SingleTickerProvid
           exerciseImage: exerciseImage,
           exerciseDescription: exerciseDescription,
           controller: _controller,
-          onSkip: skipToNextScreen,  // Pass the skip function here
+          onSkip: skipToNextScreen, // Pass the skip function here
         ),
       ),
     );

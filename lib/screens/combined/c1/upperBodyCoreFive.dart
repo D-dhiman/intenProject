@@ -3,99 +3,84 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../Exercise.dart';
 import 'Rest1.dart';
+import 'upperBodyCoreSix.dart';
 
-class ExerciseScreen extends StatefulWidget {
-  const ExerciseScreen({super.key});
-
+class UpperBodyCoreFive extends StatefulWidget {
   @override
-  // ignore: library_private_types_in_public_api
-  _ExerciseScreenState createState() => _ExerciseScreenState();
+  _UpperBodyCoreFiveState createState() => _UpperBodyCoreFiveState();
 }
 
-class _ExerciseScreenState extends State<ExerciseScreen> with SingleTickerProviderStateMixin {
+class _UpperBodyCoreFiveState extends State<UpperBodyCoreFive> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late String exerciseName;
-  late String exerciseImage;
   late String exerciseDescription;
+  late String exerciseImage;
   List<dynamic> exercises = [];
   int currentExerciseIndex = 0;
-  bool isRest = false; // Track if it's rest period or exercise period
-  bool isFinished = false; // Track if all exercises are done
   bool isLoading = true;
 
-  // Fetch exercise data
   Future<void> fetchExerciseData() async {
-  try {
-    final url = Uri.parse('http://localhost:3000/exercises/upperBodyCore/five');
-    final response = await http.get(
-      url,
-      headers: <String, String>{
-        'Content-Type': 'application/json; charset=UTF-8',
-      },
-    );
+    try {
+      final url = Uri.parse('http://localhost:3000/exercises/upperBodyCore/five');
+      final response = await http.get(url, headers: {'Content-Type': 'application/json; charset=UTF-8'});
 
-    if (response.statusCode == 200) {
-      var data = json.decode(response.body); // Log the fetched data
+      if (response.statusCode == 200) {
+        var data = json.decode(response.body);
+        setState(() {
+          exercises = [data];
+          if (exercises.isNotEmpty) {
+            updateExerciseDetails();
+            isLoading = false;
+            startExerciseTimer();
+          } else {
+            isLoading = false;
+          }
+        });
+      } else {
+        throw Exception('Failed to load exercise data');
+      }
+    } catch (error) {
       setState(() {
-        exercises = data;
-        if (exercises.isNotEmpty) {
-          exerciseName = exercises[currentExerciseIndex]['name'];
-          exerciseImage = exercises[currentExerciseIndex]['image'];
-          exerciseDescription = exercises[currentExerciseIndex]['desc'];
-          isLoading = false; // Data has loaded
-          startTimer();
-        } else {
-          isFinished = true;
-          isLoading = false;
-        }
+        isLoading = false;
       });
-    } else {
-      throw Exception('Failed to load exercise data');
     }
-  } catch (error) {
-    print("Error fetching data: $error"); // Log error
-    setState(() {
-      isLoading = false;
-    });
   }
-}
 
-  // Start the timer (for both exercise and rest periods)
-  void startTimer() {
+  void updateExerciseDetails() {
+    var currentExercise = exercises[currentExerciseIndex];
+    exerciseName = currentExercise['name'];
+    exerciseDescription = currentExercise['desc'];
+    exerciseImage = currentExercise['image'];
+  }
+
+  void startExerciseTimer() {
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: isRest ? 10 : 15), // 15 seconds for exercise, 10 for rest
+      duration: Duration(seconds: 25),
     );
     _controller.forward();
 
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        setState(() {
-          if (isRest) {
-            // Move to next exercise after rest
-            if (currentExerciseIndex < exercises.length - 1) {
-              currentExerciseIndex++;
-              isRest = false; // Switch to exercise
-              exerciseName = exercises[currentExerciseIndex]['name'];
-              exerciseImage = exercises[currentExerciseIndex]['image'];
-              exerciseDescription = exercises[currentExerciseIndex]['desc'];
-            } else {
-              isFinished = true; // End the routine
-            }
-          } else {
-            // Switch to rest after exercise
-            isRest = true;
-          }
-        });
-
-        if (!isFinished) {
-          startTimer(); // Restart the timer with the new exercise or rest
-        }
+        navigateToRestScreen();
       }
     });
   }
 
-  // Initialize state and start the first timer only after data fetch
+  void navigateToRestScreen() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => RestCard()),
+    );
+  }
+
+  void skipToNextScreen() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => UpperBodyCoreSix()),
+    );
+  }
+
   @override
   void initState() {
     super.initState();
@@ -110,55 +95,39 @@ class _ExerciseScreenState extends State<ExerciseScreen> with SingleTickerProvid
 
   @override
   Widget build(BuildContext context) {
-    // Display a loading indicator while data is loading
     if (isLoading) {
-      return const Scaffold(
+      return Scaffold(
         body: Center(child: CircularProgressIndicator()),
       );
     }
+
     if (exercises.isEmpty) {
-      return const Scaffold(
+      return Scaffold(
         body: Center(child: Text('No exercises available.')),
       );
     }
 
-    // Display a completion message when all exercises are finished
-    if (isFinished) {
-      return const Scaffold(
-        body: Center(child: Text('All exercises completed!')),
-      );
-    }
-    
     return Scaffold(
-      body: Center(
-        child: isRest 
-          ? RestCard() 
-          : ExerciseCard(
-              exerciseName: exerciseName,
-              exerciseImage: exerciseImage,
-              exerciseDescription: exerciseDescription,
-              controller: _controller,
-              onSkip: () {
-                setState(() {
-                  if (isRest) {
-                    // Skip rest and move to next exercise
-                    if (currentExerciseIndex < exercises.length - 1) {
-                      currentExerciseIndex++;
-                      isRest = false;
-                      exerciseName = exercises[currentExerciseIndex]['name'];
-                      exerciseImage = exercises[currentExerciseIndex]['image'];
-                      exerciseDescription = exercises[currentExerciseIndex]['desc'];
-                    } else {
-                      isFinished = true;
-                    }
-                  } else {
-                    // Skip exercise and move to rest
-                    isRest = true;
-                  }
-                });
-                startTimer();
-              },
+      appBar: AppBar(
+        title: Text("Exercise"),
+        actions: [
+          TextButton(
+            onPressed: skipToNextScreen,
+            child: Text(
+              "Skip",
+              style: TextStyle(color: Colors.white),
             ),
+          ),
+        ],
+      ),
+      body: Center(
+        child: ExerciseCard(
+          exerciseName: exerciseName,
+          exerciseImage: exerciseImage,
+          exerciseDescription: exerciseDescription,
+          controller: _controller,
+          onSkip: skipToNextScreen,
+        ),
       ),
     );
   }

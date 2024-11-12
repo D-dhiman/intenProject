@@ -8,6 +8,8 @@ const LocalStrategy = require("passport-local");
 const User = require("./models/user")
 const cors = require('cors');
 const CompositionCategory = require("./models/composition/composition-model"); // Adjust path if necessary
+const SingleModel = require("./models/single/single-model");
+
 // const exerciseData = require("./models/composition/data1"); // Adjust path if necessary
 
 
@@ -53,6 +55,8 @@ app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+//combined apis
 
 app.get('/exercises/:category/one', async (req, res) => {
     const {category} = req.params;
@@ -122,6 +126,118 @@ app.get('/exercises/:category/six', async (req, res) => {
         res.status(500).json({ message: err.message });
       }
 });
+
+//single apis
+
+app.get('/single/:category/one', async (req, res) => {
+  const { category } = req.params;
+  console.log(category);
+  try {
+      // Find a single document from single-model
+      const data = await SingleModel.findOne({});
+      
+      if (data && data[category] && data[category][0]) {
+          console.log(data[category][0]);
+          res.json(data[category][0]);
+      } else {
+          res.status(404).json({ message: "Data not found for the specified category or index." });
+      }
+  } catch (err) {
+      res.status(500).json({ message: err.message });
+  }
+});
+
+app.get('/single/:category/two', async (req, res) => {
+  const { category } = req.params;
+  console.log(category);
+  try {
+      // Find a single document from single-model
+      const data = await SingleModel.findOne({});
+      
+      if (data && data[category] && data[category][1]) {
+          console.log(data[category][1]);
+          res.json(data[category][1]);
+      } else {
+          res.status(404).json({ message: "Data not found for the specified category or index." });
+      }
+  } catch (err) {
+      res.status(500).json({ message: err.message });
+  }
+});
+
+app.get('/single/:category/three', async (req, res) => {
+  const { category } = req.params;
+  console.log(category);
+  try {
+      // Find a single document from single-model
+      const data = await SingleModel.findOne({});
+      
+      if (data && data[category] && data[category][2]) {
+          console.log(data[category][2]);
+          res.json(data[category][2]);
+      } else {
+          res.status(404).json({ message: "Data not found for the specified category or index." });
+      }
+  } catch (err) {
+      res.status(500).json({ message: err.message });
+  }
+});
+
+app.get('/single/:category/four', async (req, res) => {
+  const { category } = req.params;
+  console.log(category);
+  try {
+      // Find a single document from single-model
+      const data = await SingleModel.findOne({});
+      
+      if (data && data[category] && data[category][3]) {
+          console.log(data[category][3]);
+          res.json(data[category][3]);
+      } else {
+          res.status(404).json({ message: "Data not found for the specified category or index." });
+      }
+  } catch (err) {
+      res.status(500).json({ message: err.message });
+  }
+});
+
+app.get('/single/:category/five', async (req, res) => {
+  const { category } = req.params;
+  console.log(category);
+  try {
+      // Find a single document from single-model
+      const data = await SingleModel.findOne({});
+      
+      if (data && data[category] && data[category][4]) {
+          console.log(data[category][4]);
+          res.json(data[category][4]);
+      } else {
+          res.status(404).json({ message: "Data not found for the specified category or index." });
+      }
+  } catch (err) {
+      res.status(500).json({ message: err.message });
+  }
+});
+
+
+app.get('/single/:category/six', async (req, res) => {
+  const { category } = req.params;
+  console.log(category);
+  try {
+      // Find a single document from single-model
+      const data = await SingleModel.findOne({});
+      
+      if (data && data[category] && data[category][5]) {
+          console.log(data[category][5]);
+          res.json(data[category][5]);
+      } else {
+          res.status(404).json({ message: "Data not found for the specified category or index." });
+      }
+  } catch (err) {
+      res.status(500).json({ message: err.message });
+  }
+});
+
 
 app.use("/api", dataRouter);
 app.use("/", userRouter);

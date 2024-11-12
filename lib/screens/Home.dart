@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 import 'ProfileScreen.dart';
 import 'ReportScreen.dart';
-import 'combined/c1/ExerciseScreen.dart';
+import 'combined/c1/upperBodyCoreOne.dart';
+import 'combined/c2/upperBodyBackOne.dart';
+import 'combined/c3/coreLowerBodyOne.dart';
+import 'combined/c4/fullBodySeatedOne.dart';
+import 'single/s1/upperOne.dart';
+import 'single/s2/lowerOne.dart';
+import 'single/s3/coreOne.dart';
+import 'single/s4/backOne.dart';
+import 'single/s5/shoulderOne.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -132,15 +140,20 @@ class HomeState extends State<Home> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    _buildExerciseOptionWithNavigation(context),
+                    _buildExerciseOptionWithNavigation(
+                        context, UpperOne()),
                     const SizedBox(width: 8),
-                    _buildExerciseOptionWithNavigation(context),
+                    _buildExerciseOptionWithNavigation(
+                        context, LowerOne()),
                     const SizedBox(width: 8),
-                    _buildExerciseOptionWithNavigation(context),
+                    _buildExerciseOptionWithNavigation(
+                        context, CoreOne()),
                     const SizedBox(width: 8),
-                    _buildExerciseOptionWithNavigation(context),
+                    _buildExerciseOptionWithNavigation(
+                        context, BackOne()),
                     const SizedBox(width: 8),
-                    _buildExerciseOptionWithNavigation(context),
+                    _buildExerciseOptionWithNavigation(
+                        context, ShoulderOne()),
                     const SizedBox(width: 8),
                   ],
                 ),
@@ -173,15 +186,17 @@ class HomeState extends State<Home> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    _buildExerciseOptionWithNavigation(context),
+                    _buildExerciseOptionWithNavigation(
+                        context, UpperBodyCoreOne()),
                     const SizedBox(width: 8),
-                    _buildExerciseOptionWithNavigation(context),
+                    _buildExerciseOptionWithNavigation(
+                        context, UpperBodyBackOne()),
                     const SizedBox(width: 8),
-                    _buildExerciseOptionWithNavigation(context),
+                    _buildExerciseOptionWithNavigation(
+                        context, CoreLowerBodyOne()),
                     const SizedBox(width: 8),
-                    _buildExerciseOptionWithNavigation(context),
-                    const SizedBox(width: 8),
-                    _buildExerciseOptionWithNavigation(context),
+                    _buildExerciseOptionWithNavigation(
+                        context, FullBodySeatedOne()),
                     const SizedBox(width: 8),
                   ],
                 ),
@@ -260,15 +275,17 @@ class HomeState extends State<Home> {
     );
   }
 
-  Widget _buildExerciseOptionWithNavigation(BuildContext context) {
+  Widget _buildExerciseOptionWithNavigation(
+      BuildContext context, Widget destinationScreen,
+      {String? imageUrl}) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) =>ExerciseScreen()),
+          MaterialPageRoute(builder: (context) => destinationScreen),
         );
       },
-      child: _buildExerciseOption(null),
+      child: _buildExerciseOption(imageUrl),
     );
   }
 }
