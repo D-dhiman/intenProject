@@ -11,7 +11,7 @@ class ProfileScreen extends StatefulWidget {
 class ProfileScreenState extends State<ProfileScreen> {
   // Profile details
   String name = "Name";
-  String bio = "Lorem ipsumhdaf gsdvdd\nhsad hsdha adau adgy...";
+  String bio = "I believe fitness is about more than just physical health—it’s about building mental resilience, boosting confidence, and improving overall well-being. With small, consistent steps, I’m working towards being the best version of myself every day.";
   String age = "20";
   String interests = "90's Music,Long Walks,Shopping";
   String disability = "Arm mobility";
@@ -37,7 +37,7 @@ class ProfileScreenState extends State<ProfileScreen> {
                     width: 1.5,
                   ),
                   image: const DecorationImage(
-                    image: AssetImage('assets/placeHolder.jpg'),
+                    image: AssetImage('assets/profile.jpg'),
                     fit: BoxFit.cover,
                   ),
                 ),

@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
                     width: 71,
                     height: 92,
                     child: Text(
-                      'Fit\nviT',
+                      'Fit\nwiT',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.white,

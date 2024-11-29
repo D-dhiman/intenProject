@@ -54,196 +54,98 @@ class HomeState extends State<Home> {
   }
 
   // Build the home content
-  Widget _buildHomeContent() {
-    final screenWidth = MediaQuery.of(context).size.width;
+Widget _buildHomeContent() {
+  final screenWidth = MediaQuery.of(context).size.width;
 
-    return SingleChildScrollView(
-      child: SizedBox(
-        width: screenWidth,
-        child: Column(
-          children: [
-            // App Name
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Container(
-                margin: const EdgeInsets.only(top: 20.0),
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Text(
-                  'Fit Vit',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    color: const Color(0xFF3C3939),
-                    fontSize: MediaQuery.of(context).size.width * 0.04,
-                    fontFamily: 'Karla',
-                    fontWeight: FontWeight.w600,
-                    letterSpacing: 0.7,
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-            // Week Goals
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Text(
-                  'Week Goals',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    color: const Color(0xFF3C3939),
-                    fontSize: MediaQuery.of(context).size.width * 0.030,
-                    fontFamily: 'Karla',
-                    fontWeight: FontWeight.w500,
-                    letterSpacing: 0.7,
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-            // Customize your exercise routine text
-            Align(
-              alignment: Alignment.center,
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width * 0.8,
-                height: MediaQuery.of(context).size.height * 0.8,
-                child: Image.asset(
-                  'assets/customise.png',
-                  fit: BoxFit.contain,
-                ),
-              ),
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-            // Limb and Area Specific Exercises
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Text(
-                  'Limb and Area Specific Exercises',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    color: const Color(0xFF3C3939),
-                    fontSize: MediaQuery.of(context).size.width * 0.03,
-                    fontFamily: 'Karla',
-                    fontWeight: FontWeight.w500,
-                    letterSpacing: 0.7,
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-            // Exercise routine options
-            Padding(
+  return SingleChildScrollView(
+    child: SizedBox(
+      width: screenWidth,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // App Name
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Container(
+              margin: const EdgeInsets.only(top: 20.0),
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    _buildExerciseOptionWithNavigation(
-                        context, UpperOne()),
-                    const SizedBox(width: 8),
-                    _buildExerciseOptionWithNavigation(
-                        context, LowerOne()),
-                    const SizedBox(width: 8),
-                    _buildExerciseOptionWithNavigation(
-                        context, CoreOne()),
-                    const SizedBox(width: 8),
-                    _buildExerciseOptionWithNavigation(
-                        context, BackOne()),
-                    const SizedBox(width: 8),
-                    _buildExerciseOptionWithNavigation(
-                        context, ShoulderOne()),
-                    const SizedBox(width: 8),
-                  ],
+              child: Text(
+                'Fit Wit',
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  color: const Color(0xFF3C3939),
+                  fontSize: MediaQuery.of(context).size.width * 0.04,
+                  fontFamily: 'Karla',
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: 0.7,
                 ),
               ),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-            // More options
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Text(
-                  'More options',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    color: const Color(0xFF3C3939),
-                    fontSize: MediaQuery.of(context).size.width * 0.03,
-                    fontFamily: 'Karla',
-                    fontWeight: FontWeight.w500,
-                    letterSpacing: 0.7,
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-            //second options for mix
-            Padding(
+          ),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+
+          // Limb and Area Specific Exercises Title
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    _buildExerciseOptionWithNavigation(
-                        context, UpperBodyCoreOne()),
-                    const SizedBox(width: 8),
-                    _buildExerciseOptionWithNavigation(
-                        context, UpperBodyBackOne()),
-                    const SizedBox(width: 8),
-                    _buildExerciseOptionWithNavigation(
-                        context, CoreLowerBodyOne()),
-                    const SizedBox(width: 8),
-                    _buildExerciseOptionWithNavigation(
-                        context, FullBodySeatedOne()),
-                    const SizedBox(width: 8),
-                  ],
+              child: Text(
+                'Limb and Area Specific Exercises',
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  color: const Color(0xFF3C3939),
+                  fontSize: MediaQuery.of(context).size.width * 0.03,
+                  fontFamily: 'Karla',
+                  fontWeight: FontWeight.w500,
+                  letterSpacing: 0.7,
                 ),
               ),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-            // Yoga image
-            /*
-            Padding(
+          ),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+
+          // Exercise Routine Options (First Set)
+          _buildExerciseOptionWithNavigation(context, UpperOne(), 'Upper Body'),
+          _buildExerciseOptionWithNavigation(context, LowerOne(), 'Lower Body'),
+          _buildExerciseOptionWithNavigation(context, CoreOne(), 'Core'),
+          _buildExerciseOptionWithNavigation(context, BackOne(), 'Back'),
+          _buildExerciseOptionWithNavigation(context, ShoulderOne(), 'Shoulders'),
+
+          SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+
+          // Mixed Routine Title
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ExerciseCard()),
-                  );
-                },
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.6,
-                  height: MediaQuery.of(context).size.height * 0.6,
-                  child: Image.asset(
-                    'assets/placeHolder.jpg',
-                    fit: BoxFit.contain,
-                  ),
+              child: Text(
+                'Mixed Routine Options',
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  color: const Color(0xFF3C3939),
+                  fontSize: MediaQuery.of(context).size.width * 0.03,
+                  fontFamily: 'Karla',
+                  fontWeight: FontWeight.w500,
+                  letterSpacing: 0.7,
                 ),
               ),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-            // Zumba image
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width * 0.6,
-                height: MediaQuery.of(context).size.height * 0.6,
-                child: Image.asset(
-                  'assets/placeHolder.jpg',
-                  fit: BoxFit.contain,
-                ),
-              ),
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-            */
-          ],
-        ),
+          ),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+
+          // Mixed Routine Options (Second Set)
+          _buildExerciseOptionWithNavigation(context, UpperBodyCoreOne(), 'Upper Body & Core'),
+          _buildExerciseOptionWithNavigation(context, UpperBodyBackOne(), 'Upper Body & Back'),
+          _buildExerciseOptionWithNavigation(context, CoreLowerBodyOne(), 'Core & Lower Body'),
+          _buildExerciseOptionWithNavigation(context, FullBodySeatedOne(), 'Full Body (Seated)'),
+
+          SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+        ],
       ),
-    );
-  }
+    ),
+  );
+}
+
 
   // Build other content for Report and Profile
   Widget _buildOtherContent() {
@@ -258,34 +160,41 @@ class HomeState extends State<Home> {
   }
 
   // Helper function to build each exercise option
-  Widget _buildExerciseOption(String? imageUrl) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.4,
-      height: MediaQuery.of(context).size.height * 0.4,
-      decoration: BoxDecoration(
-        color: imageUrl == null ? const Color(0xFFD9D9D9) : null,
-        borderRadius: BorderRadius.circular(8),
-        image: imageUrl != null
-            ? DecorationImage(
-                image: AssetImage(imageUrl),
-                fit: BoxFit.contain,
-              )
-            : null,
-      ),
-    );
-  }
-
   Widget _buildExerciseOptionWithNavigation(
-      BuildContext context, Widget destinationScreen,
-      {String? imageUrl}) {
+    BuildContext context, Widget destination, String label) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => destinationScreen),
+          MaterialPageRoute(builder: (context) => destination),
         );
       },
-      child: _buildExerciseOption(imageUrl),
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+        padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 20.0),
+        decoration: BoxDecoration(
+          color: const Color(0xFFECECEC),
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        child: Row(
+          children: [
+            Icon(
+              Icons.fitness_center,
+              color: const Color(0xFF3C3939),
+              size: 24,
+            ),
+            SizedBox(width: 16.0),
+            Text(
+              label,
+              style: TextStyle(
+                fontSize: 16,
+                color: const Color(0xFF3C3939),
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

@@ -39,6 +39,7 @@ dependencies:
   build_web_compilers: ^4.0.11
   http: ^1.2.2
   confetti: ^0.8.0
+  charts_flutter: ^0.12.0
 
 dev_dependencies:
   flutter_test:
@@ -89,6 +90,8 @@ flutter:
     - assets/report_1/shoulder/Lateral Raises (Modified Range).webp
     - assets/report_1/shoulder/Shoulder Press Seated.webp
     - assets/restGif.gif
+    - assets/profile.jpg
+    - assets/time_graph_line.png
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
